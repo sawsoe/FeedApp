@@ -39,6 +39,9 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Feed List"
+        //enable large title in nav bar
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.register(FeedListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.backgroundColor = .white
         
@@ -61,6 +64,11 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 270)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        //top spacing between collectionview and largeTitle
+        return .init(top: 15, left: 0, bottom: 0, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
