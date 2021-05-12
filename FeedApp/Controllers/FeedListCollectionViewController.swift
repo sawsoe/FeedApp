@@ -9,6 +9,7 @@ import LBTATools
 import SwiftyJSON
 import Alamofire
 
+///CollectionViewController to show contents
 class FeedListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellID = "feedListCellID"
@@ -62,6 +63,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
 }
 
 extension FeedListCollectionViewController{
+    ///Getting JSON data from file and save Feed object in array
     @objc func loadDataFromFile(){
         if let path = Bundle.main.path(forResource: "response", ofType: "json") {
             do {
@@ -90,6 +92,7 @@ extension FeedListCollectionViewController{
         }
     }
     
+    /// Getting JSON data from API using Alamofire and save Feed object in array
     @objc func loadDataFromApi(){
         
         let url = "https://ios-code-challenge.mockservice.io/posts"
