@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         //change the root view of window
-        window?.rootViewController = FeedListCollectionViewController(collectionViewLayout:UICollectionViewFlowLayout())
+        window?.rootViewController = UINavigationController(rootViewController: FeedListCollectionViewController(collectionViewLayout:UICollectionViewFlowLayout()))
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
