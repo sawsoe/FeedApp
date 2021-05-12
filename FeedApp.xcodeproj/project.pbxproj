@@ -21,6 +21,7 @@
 		524B1948264BC64B005794D5 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 524B1947264BC64B005794D5 /* response.json */; };
 		524B194D264BC6CB005794D5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B194C264BC6CB005794D5 /* Feed.swift */; };
 		524B195B264BD117005794D5 /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B195A264BD117005794D5 /* UIImageView+Cache.swift */; };
+		524B1977264BFCC8005794D5 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B1976264BFCC8005794D5 /* CustomTabBarController.swift */; };
 		A877A9DA03EE4A88EC092CD7 /* Pods_FeedApp_FeedAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C2149D384E517FCD59A9B9 /* Pods_FeedApp_FeedAppUITests.framework */; };
 		AF066A9E5505D77E267476EC /* Pods_FeedAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A221C52D9BCBE313109961 /* Pods_FeedAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		524B1947264BC64B005794D5 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		524B194C264BC6CB005794D5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		524B195A264BD117005794D5 /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
+		524B1976264BFCC8005794D5 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		8289642D5E42A22C48A08555 /* Pods-FeedApp-FeedAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedApp-FeedAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FeedApp-FeedAppUITests/Pods-FeedApp-FeedAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F3350B6CE4AB6F5F7E8F871 /* Pods_FeedApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7411E60AB373275AF98F99 /* Pods-FeedAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FeedAppTests/Pods-FeedAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				524B193D264BBEB8005794D5 /* FeedListCollectionViewController.swift */,
+				524B1976264BFCC8005794D5 /* CustomTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 			files = (
 				524B193E264BBEB8005794D5 /* FeedListCollectionViewController.swift in Sources */,
 				524B194D264BC6CB005794D5 /* Feed.swift in Sources */,
+				524B1977264BFCC8005794D5 /* CustomTabBarController.swift in Sources */,
 				524B1943264BC078005794D5 /* FeedListViewCell.swift in Sources */,
 				524B1902264BBAB5005794D5 /* ViewController.swift in Sources */,
 				524B18FE264BBAB5005794D5 /* AppDelegate.swift in Sources */,
