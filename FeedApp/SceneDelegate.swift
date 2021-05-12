@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         //change the root view of window
-        window?.rootViewController = UINavigationController(rootViewController: FeedListCollectionViewController(collectionViewLayout:UICollectionViewFlowLayout()))
+        window?.rootViewController = CustomTabBarController()
         
     }
 
