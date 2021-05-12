@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				9F7411E60AB373275AF98F99 /* Pods-FeedAppTests.debug.xcconfig */,
 				4A79A147AB9F74E51EB70989 /* Pods-FeedAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +139,9 @@
 		524B18FC264BBAB5005794D5 /* FeedApp */ = {
 			isa = PBXGroup;
 			children = (
+				524B193C264BBE4B005794D5 /* Controllers */,
+				524B193B264BBE46005794D5 /* Views */,
+				524B1937264BBE36005794D5 /* Models */,
 				524B18FD264BBAB5005794D5 /* AppDelegate.swift */,
 				524B18FF264BBAB5005794D5 /* SceneDelegate.swift */,
 				524B1901264BBAB5005794D5 /* ViewController.swift */,
@@ -167,6 +169,27 @@
 				524B1921264BBAB7005794D5 /* Info.plist */,
 			);
 			path = FeedAppUITests;
+			sourceTree = "<group>";
+		};
+		524B1937264BBE36005794D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		524B193B264BBE46005794D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		524B193C264BBE4B005794D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
