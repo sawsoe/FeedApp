@@ -12,13 +12,21 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     
     let cellID = "feedListCellID"
     var feedList = [Feed]()
+    var refreshControl : UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(loadDataFromFile), for: .valueChanged)
+        return control
+    }()
     
-    func loadDataFromFile(){
+    @objc func loadDataFromFile(){
         if let path = Bundle.main.path(forResource: "response", ofType: "json") {
             do {
                 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = JSON(data)
+                
+                //clean feedList
+                feedList.removeAll()
                 
                 for jsonObject in jsonResult.arrayValue {
                     
@@ -28,6 +36,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
                 }
                 
                 //reload the view to show update data
+                refreshControl.endRefreshing()
                 collectionView.reloadData()
                 
             } catch {
@@ -44,6 +53,8 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         self.navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.register(FeedListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.backgroundColor = .white
+        
+        collectionView.addSubview(refreshControl)
         
         loadDataFromFile()
     }
