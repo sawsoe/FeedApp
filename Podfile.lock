@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.4.3)
   - LBTATools (1.0.12)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - LBTATools
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - LBTATools
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 8f939a1429607eaa0565b2b439fa027e996aa1de
+PODFILE CHECKSUM: 3a3267f99485e4edf170813a1d3930f4f9451bdc
 
 COCOAPODS: 1.10.1
