@@ -9,9 +9,26 @@ import LBTATools
 
 class FeedListViewCell: UICollectionViewCell {
     
-    var imageView = UIImageView(backgroundColor: .blue)
-    var titleLabel = UILabel(text: "Sample text", font: .boldSystemFont(ofSize: 16), textColor: .black, textAlignment: .left, numberOfLines: 2)
-    var bodyLabel = UILabel(text: "Body text...\naa\naa", font: .systemFont(ofSize: 12), textColor: .black, textAlignment: .left, numberOfLines: 4)
+    var feedData: Feed?{
+        didSet{
+            if let data = feedData{
+                imageView.loadImage(urlString: data.imageUrl!)
+                titleLabel.text = data.title
+                bodyLabel.text = data.body
+            }
+        }
+    }
+    
+    let imageView : CachedImageView = {
+        let img = CachedImageView()
+        img.image = UIImage()
+        img.backgroundColor = .lightGray
+        img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
+        return img
+    }()
+    let titleLabel = UILabel(text: "Sample text", font: .boldSystemFont(ofSize: 16), textColor: .black, textAlignment: .left, numberOfLines: 2)
+    let bodyLabel = UILabel(text: "Body text...\naa\naa", font: .systemFont(ofSize: 12), textColor: .black, textAlignment: .left, numberOfLines: 4)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,7 +36,7 @@ class FeedListViewCell: UICollectionViewCell {
     }
     
     func setupViews(){
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .white
         self.layer.borderWidth = 1
         
         stack(imageView.withHeight(150),
