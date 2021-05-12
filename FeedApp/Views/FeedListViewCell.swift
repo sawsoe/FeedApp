@@ -10,12 +10,20 @@ import LBTATools
 class FeedListViewCell: UICollectionViewCell {
     
     var imageView = UIImageView(backgroundColor: .blue)
-    var titleLabel = UILabel(text: "Sample text", font: .boldSystemFont(ofSize: 14), textColor: .black, textAlignment: .left, numberOfLines: 2)
-    var bodyLabel = UILabel(text: "Boday text...", font: .systemFont(ofSize: 12), textColor: .black, textAlignment: .left, numberOfLines: 4)
+    var titleLabel = UILabel(text: "Sample text", font: .boldSystemFont(ofSize: 16), textColor: .black, textAlignment: .left, numberOfLines: 2)
+    var bodyLabel = UILabel(text: "Body text...\naa\naa", font: .systemFont(ofSize: 12), textColor: .black, textAlignment: .left, numberOfLines: 4)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViews()
+    }
+    
+    func setupViews(){
+        self.backgroundColor = .lightGray
+        self.layer.borderWidth = 1
         
+        stack(imageView.withHeight(150),
+              stack(titleLabel, bodyLabel).withMargins(.allSides(14)))
     }
     
     required init?(coder: NSCoder) {
