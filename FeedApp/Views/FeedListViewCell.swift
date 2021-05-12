@@ -7,6 +7,7 @@
 
 import LBTATools
 
+///Custom Feed Cell for CollectionView
 class FeedListViewCell: UICollectionViewCell {
     
     var feedData: Feed?{
