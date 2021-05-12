@@ -10,6 +10,7 @@ import LBTATools
 ///Custom Feed Cell for CollectionView
 class FeedListViewCell: UICollectionViewCell {
     
+    //Data to show in view components
     var feedData: Feed?{
         didSet{
             if let data = feedData{
