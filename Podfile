@@ -7,6 +7,7 @@ target 'FeedApp' do
 
   # Pods for FeedApp
   pod 'LBTATools'
+  pod 'SwiftyJSON'
 
   target 'FeedAppTests' do
     inherit! :search_paths
