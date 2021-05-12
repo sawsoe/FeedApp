@@ -15,6 +15,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         super.viewDidLoad()
         
         collectionView.register(FeedListViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.backgroundColor = .white
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -31,7 +32,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        return .init(width: view.frame.width, height: 250)
     }
     
 }
