@@ -23,7 +23,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Feed List"
+        self.title = "Feed"
         //enable large title in nav bar
         self.navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.register(FeedListViewCell.self, forCellWithReuseIdentifier: cellID)
@@ -57,6 +57,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO : push to next view
         print("Cliked on : " + feedList[indexPath.row].title!)
     }
     
