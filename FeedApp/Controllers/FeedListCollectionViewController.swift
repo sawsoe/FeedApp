@@ -19,64 +19,6 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         return control
     }()
     
-    @objc func loadDataFromFile(){
-        if let path = Bundle.main.path(forResource: "response", ofType: "json") {
-            do {
-                
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = JSON(data)
-                
-                print("Load data from json file")
-                //clean feedList
-                feedList.removeAll()
-                
-                for jsonObject in jsonResult.arrayValue {
-                    
-                    let feed:Feed = Feed()
-                    feed.fromJSON(jsonData: jsonObject)
-                    feedList.append(feed)
-                }
-                
-                //reload the view to show update data
-                refreshControl.endRefreshing()
-                collectionView.reloadData()
-                
-            } catch {
-                print("Failed to load data from json file")
-            }
-        }
-    }
-    
-    @objc func loadDataFromApi(){
-        
-        let url = "https://ios-code-challenge.mockservice.io/posts"
-        AF.request(url, method: .get, parameters: nil).responseJSON { [self] (response) in
-            self.feedList.removeAll()
-            
-            switch response.result {
-            case .success(let value):
-                let jsonResult = JSON(value)
-                
-                //clean feedList
-                feedList.removeAll()
-                
-                for jsonObject in jsonResult.arrayValue {
-                    
-                    let feed:Feed = Feed()
-                    feed.fromJSON(jsonData: jsonObject)
-                    feedList.append(feed)
-                }
-            case .failure(let error):
-                print("Failed to fetch data from api: \n" + error.localizedDescription)
-                loadDataFromFile()
-                break
-            // error handling
-            }
-            self.refreshControl.endRefreshing()
-            self.collectionView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,7 +29,10 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         collectionView.backgroundColor = .white
         
         collectionView.addSubview(refreshControl)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         loadDataFromApi()
     }
     
@@ -118,4 +63,74 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         print("Cliked on : " + feedList[indexPath.row].title!)
     }
     
+}
+
+extension FeedListCollectionViewController{
+    @objc func loadDataFromFile(){
+        if let path = Bundle.main.path(forResource: "response", ofType: "json") {
+            do {
+                
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = JSON(data)
+                
+                //clean feedList
+                feedList.removeAll()
+                
+                for jsonObject in jsonResult.arrayValue {
+                    
+                    let feed:Feed = Feed()
+                    feed.fromJSON(jsonData: jsonObject)
+                    feedList.append(feed)
+                }
+                
+                //reload the view to show update data
+                print("Loaded data from json file")
+                refreshControl.endRefreshing()
+                collectionView.reloadData()
+                
+            } catch {
+                print("Failed to load data from json file")
+            }
+        }
+    }
+    
+    @objc func loadDataFromApi(){
+        
+        let url = "https://ios-code-challenge.mockservice.io/posts"
+        self.refreshControl.beginRefreshing()
+        
+        var request = URLRequest(url: URL(string: url)! as URL)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 4 //4 sec
+        
+        AF.request(request as URLRequestConvertible).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                let jsonResult = JSON(value)
+                
+                //clean feedList
+                self.feedList.removeAll()
+                
+                for jsonObject in jsonResult.arrayValue {
+                    
+                    let feed:Feed = Feed()
+                    feed.fromJSON(jsonData: jsonObject)
+                    self.feedList.append(feed)
+                }
+                print("Loaded data from api")
+                
+            case .failure(let error):
+                print("Failed to fetch data from api")
+                self.loadDataFromFile()
+                break
+            }
+            
+            self.refreshControl.endRefreshing()
+            self.collectionView.reloadData()
+        }
+        
+    }
 }
