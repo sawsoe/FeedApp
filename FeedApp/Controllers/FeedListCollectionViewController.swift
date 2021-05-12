@@ -29,10 +29,6 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         collectionView.backgroundColor = .white
         
         collectionView.addSubview(refreshControl)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
         loadDataFromApi()
     }
     
