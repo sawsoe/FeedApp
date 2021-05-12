@@ -6,6 +6,7 @@ target 'FeedApp' do
   use_frameworks!
 
   # Pods for FeedApp
+  pod 'LBTATools'
 
   target 'FeedAppTests' do
     inherit! :search_paths
