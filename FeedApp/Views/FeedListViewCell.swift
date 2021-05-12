@@ -39,7 +39,7 @@ class FeedListViewCell: UICollectionViewCell {
         self.backgroundColor = .white
         self.layer.borderWidth = 1
         
-        stack(imageView.withHeight(150),
+        stack(imageView.withHeight(170),
               stack(titleLabel, bodyLabel).withMargins(.allSides(14)))
     }
     
