@@ -7,6 +7,7 @@
 
 import LBTATools
 import SwiftyJSON
+import Alamofire
 
 class FeedListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -14,7 +15,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
     var feedList = [Feed]()
     var refreshControl : UIRefreshControl = {
         let control = UIRefreshControl()
-        control.addTarget(self, action: #selector(loadDataFromFile), for: .valueChanged)
+        control.addTarget(self, action: #selector(loadDataFromApi), for: .valueChanged)
         return control
     }()
     
@@ -25,6 +26,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = JSON(data)
                 
+                print("Load data from json file")
                 //clean feedList
                 feedList.removeAll()
                 
@@ -40,11 +42,41 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
                 collectionView.reloadData()
                 
             } catch {
-                // handle error
+                print("Failed to load data from json file")
             }
         }
     }
-
+    
+    @objc func loadDataFromApi(){
+        
+        let url = "https://ios-code-challenge.mockservice.io/posts"
+        AF.request(url, method: .get, parameters: nil).responseJSON { [self] (response) in
+            self.feedList.removeAll()
+            
+            switch response.result {
+            case .success(let value):
+                let jsonResult = JSON(value)
+                
+                //clean feedList
+                feedList.removeAll()
+                
+                for jsonObject in jsonResult.arrayValue {
+                    
+                    let feed:Feed = Feed()
+                    feed.fromJSON(jsonData: jsonObject)
+                    feedList.append(feed)
+                }
+            case .failure(let error):
+                print("Failed to fetch data from api: \n" + error.localizedDescription)
+                loadDataFromFile()
+                break
+            // error handling
+            }
+            self.refreshControl.endRefreshing()
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +88,7 @@ class FeedListCollectionViewController: UICollectionViewController, UICollection
         
         collectionView.addSubview(refreshControl)
         
-        loadDataFromFile()
+        loadDataFromApi()
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
