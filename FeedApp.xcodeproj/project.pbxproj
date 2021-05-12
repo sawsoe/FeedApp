@@ -17,6 +17,7 @@
 		524B1915264BBAB7005794D5 /* FeedAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B1914264BBAB7005794D5 /* FeedAppTests.swift */; };
 		524B1920264BBAB7005794D5 /* FeedAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B191F264BBAB7005794D5 /* FeedAppUITests.swift */; };
 		524B193E264BBEB8005794D5 /* FeedListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B193D264BBEB8005794D5 /* FeedListCollectionViewController.swift */; };
+		524B1943264BC078005794D5 /* FeedListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B1942264BC078005794D5 /* FeedListViewCell.swift */; };
 		A877A9DA03EE4A88EC092CD7 /* Pods_FeedApp_FeedAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C2149D384E517FCD59A9B9 /* Pods_FeedApp_FeedAppUITests.framework */; };
 		AF066A9E5505D77E267476EC /* Pods_FeedAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A221C52D9BCBE313109961 /* Pods_FeedAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		524B191F264BBAB7005794D5 /* FeedAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAppUITests.swift; sourceTree = "<group>"; };
 		524B1921264BBAB7005794D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524B193D264BBEB8005794D5 /* FeedListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListCollectionViewController.swift; sourceTree = "<group>"; };
+		524B1942264BC078005794D5 /* FeedListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewCell.swift; sourceTree = "<group>"; };
 		8289642D5E42A22C48A08555 /* Pods-FeedApp-FeedAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedApp-FeedAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FeedApp-FeedAppUITests/Pods-FeedApp-FeedAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F3350B6CE4AB6F5F7E8F871 /* Pods_FeedApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7411E60AB373275AF98F99 /* Pods-FeedAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FeedAppTests/Pods-FeedAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		524B193B264BBE46005794D5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				524B1942264BC078005794D5 /* FeedListViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524B193E264BBEB8005794D5 /* FeedListCollectionViewController.swift in Sources */,
+				524B1943264BC078005794D5 /* FeedListViewCell.swift in Sources */,
 				524B1902264BBAB5005794D5 /* ViewController.swift in Sources */,
 				524B18FE264BBAB5005794D5 /* AppDelegate.swift in Sources */,
 				524B1900264BBAB5005794D5 /* SceneDelegate.swift in Sources */,
